@@ -1,0 +1,54 @@
+<p>Entre com os seus dados.</p>
+
+<form name='form' novalidate data-ng-submit="vm.enviar(form.$valid)">
+	<fieldset>
+		
+		<div>
+			<label for="email">E-mail:</label>
+			<input
+				type="email"
+				id="email"
+				name="email"
+				required
+				data-ng-model-options="{ updateOn: 'blur' }"
+				data-ng-model="vm.email" />
+				
+			<div
+				data-ng-messages="form.email.$error"
+				data-ng-if="form.email.$dirty || form.$submitted">
+				
+				<small data-ng-message="required">
+					Digite o e-mail.
+				</small>
+				
+				<small data-ng-message="email">
+          E-mail inválido.
+        </small>
+				
+			</div>
+		</div>
+		
+		<div>
+			<label for="senha">Senha:</label>
+			<input
+				type="password"
+				id="senha"
+				required
+				data-ng-model="vm.senha" />
+				
+			<div
+        data-ng-messages="form.senha.$error"
+        data-ng-if="form.senha.$dirty || form.$submitted">
+        
+        <small data-ng-message="required">
+          Digite a senha.
+        </small>
+      </div>
+		</div>
+		
+		<div>
+			<button>Entrar</button>
+		</div>
+		
+	</fieldset>
+</form>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html data-ng-app="app">
+  <head>
+    <meta charset="utf-8" />
+    <title></title>
+  </head>
+
+  <body>
+    <section data-ng-view></section>
+    
+    <script src="/node_modules/angular/angular.min.js"></script>
+    <script src="/node_modules/angular-route/angular-route.min.js"></script>
+    <script src="/node_modules/angular-messages/angular-messages.min.js"></script>
+
+    <!-- bootstrapping -->
+    <script src="/src/app/app.module.js"></script>
+      
+    <!-- core module -->
+    <script src="/src/app/core/core.module.js"></script>
+    <script src="/src/app/core/routes.config.js"></script>
+      
+    <!-- autenticacao -->
+    <script src="/src/app/autenticacao/autenticacao.module.js"></script>
+    <script src="/src/app/autenticacao/autenticacao.service.js"></script>
+    <script src="/src/app/autenticacao/autenticacao.js"></script>
+      
+    <!-- todo-list -->
+    <script src="/src/app/todo-list/todo-list.module.js"></script>
+  </body>
+</html>
