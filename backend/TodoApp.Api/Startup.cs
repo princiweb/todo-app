@@ -40,6 +40,8 @@ namespace TodoApp.Api
             );
 
             config.Services.Replace(typeof(IExceptionHandler), new ExceptionHandler());
+
+            config.Formatters.Remove(config.Formatters.XmlFormatter);
         }
 
         public void ConfigureOAuth(IAppBuilder app, IUsuarioService usuarioService)
