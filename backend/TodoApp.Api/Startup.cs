@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Web.Http;
+using System.Web.Http.Cors;
 using System.Web.Http.ExceptionHandling;
 using Microsoft.Owin;
 using Microsoft.Owin.Security.OAuth;
@@ -29,7 +30,8 @@ namespace TodoApp.Api
 
         public static void ConfigureWebApi(HttpConfiguration config)
         {
-            config.EnableCors();
+            var cors = new EnableCorsAttribute("*", "*", "*");
+            config.EnableCors(cors);
 
             config.MapHttpAttributeRoutes();
 
