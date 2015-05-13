@@ -11,13 +11,16 @@
     <script src="/node_modules/angular/angular.min.js"></script>
     <script src="/node_modules/angular-route/angular-route.min.js"></script>
     <script src="/node_modules/angular-messages/angular-messages.min.js"></script>
+    <script src="/node_modules/angular-local-storage/dist/angular-local-storage.min.js"></script>
+    <script src="/node_modules/moment/min/moment-with-locales.min.js"></script>
 
     <!-- bootstrapping -->
     <script src="/src/app/app.module.js"></script>
       
     <!-- core module -->
     <script src="/src/app/core/core.module.js"></script>
-    <script src="/src/app/core/routes.config.js"></script>
+    <script src="/src/app/core/auth.interceptor.service.js"></script>
+    <script src="/src/app/core/config.js"></script>
       
     <!-- autenticacao -->
     <script src="/src/app/autenticacao/autenticacao.module.js"></script>
@@ -26,5 +29,8 @@
       
     <!-- todo-list -->
     <script src="/src/app/todo-list/todo-list.module.js"></script>
+    <script src="/src/app/todo-list/todo-list.service.js"></script>
+    <script src="/src/app/todo-list/todo-list.filters.js"></script>
+    <script src="/src/app/todo-list/todo-list.js"></script>
   </body>
 </html>

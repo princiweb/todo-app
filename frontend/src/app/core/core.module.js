@@ -6,7 +6,8 @@
      * Angular modules
      */
     'ngRoute',    
-    'ngMessages'
+    'ngMessages',
+    'LocalStorageModule'
   ]);
 
 }());

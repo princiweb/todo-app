@@ -1,0 +1,43 @@
+<p data-ng-if="vm.erro">{{ vm.erro }}</p>
+
+<form name="form" novalidate data-ng-submit="vm.enviar(form.$valid)">
+	<fieldset>
+		
+		<div>
+			<label for="tarefa">O que você precisa fazer?</label>
+			<input
+				type="text"
+				id="tarefa"
+				name="tarefa"
+				required
+				data-ng-model="vm.tarefa" />
+				
+			<div
+				data-ng-messages="form.tarefa.$error"
+				data-ng-if="form.tarefa.$dirty || form.$submitted">
+				
+				<small data-ng-message="required">
+					Digite a tarefa.
+				</small>
+				
+			</div>
+		</div>
+		
+		<div>
+			<button>Enviar</button>
+		</div>
+		
+	</fieldset>
+</form>
+
+<h2>Minhas tarefas:</h2>
+
+<p data-ng-if="!vm.tarefas.length && vm.carregouTarefas">Não há tarefas cadastradas.</p>
+
+<ul>
+	<li data-ng-repeat="tarefa in vm.tarefas">
+		<p>{{ tarefa.Titulo }}</p>
+		<p>{{ tarefa.CriadoEm | fromNow }}</p>
+		<p>{{ tarefa.Status }}</p>
+	</li>
+</ul>

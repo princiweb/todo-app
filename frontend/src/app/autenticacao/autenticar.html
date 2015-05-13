@@ -1,5 +1,7 @@
 <p>Entre com os seus dados.</p>
 
+<p data-ng-if="vm.erro">{{ vm.erro }}</p>
+
 <form name='form' novalidate data-ng-submit="vm.enviar(form.$valid)">
 	<fieldset>
 		
