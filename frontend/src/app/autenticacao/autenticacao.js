@@ -17,7 +17,7 @@
       autenticacaoService.autenticar(vm.email, vm.senha)
          .then(function (result) {
            
-          $location.path('/todo-list.html');;
+          $location.path('/todo-list.html');
            
          }, function(err) {
            

@@ -8,7 +8,8 @@
   function autenticacaoService($http, $q, localStorageService) {
 		
 		var service = {
-      autenticar: autenticar
+      autenticar: autenticar,
+			sair: sair
     };
 		
 		return service;
@@ -31,6 +32,7 @@
 				});
 				
 			}).error(function(err) {
+				sair();
 				
 				deferred.reject(err);
 				
@@ -38,6 +40,10 @@
 			
 			return deferred.promise;			
 		}
+		
+		function sair() {
+      localStorageService.remove('autorizacao');
+    }
 		
   }
 

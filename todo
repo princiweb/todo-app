@@ -1,0 +1,38 @@
+Passo 1: básico
+
+module
+controller e injeção de dependencia
+two way data bind
+one-time data bind
+
+Passo 2: separação dos modulos (desenho)
+
+Modules: Core, Todo-list, Autenticacao
+Erro de não incluir js definido como dependencia
+ng-view
+rotas (básico, depois mudamos pro estilo Jão)
+Explicar controller com CamelCase
+$scope e depois vm
+controller, controllerAs
+fazer formulário (data-, validação html5, angular-messages, dirty, 
+
+submitted)
+explicar oauth
+explica factory (service) para enviar o form
+promisses ($q.defer)
+
+local storage
+interceptor authentication
+filtros
+
+
+FAZER:
+
+remover - deixar para os alunos fazerem
+GMT
+
+Jão Papa
+https://github.com/johnpapa/angular-styleguide
+
+
+http://toddmotto.com/mastering-the-module-pattern/

@@ -5,12 +5,14 @@
     .module('app.todo-list')
     .controller('TodoList', TodoList);
     
-  function TodoList($scope, todoListService) {
+  function TodoList($scope, $location, todoListService, autenticacaoService) {
     var vm = this;
     
     vm = {
       tarefas: [ ],
       enviar: enviar,
+      sair: sair,
+      finalizar: finalizar,
       carregouTarefas: false
     };
     
@@ -54,7 +56,27 @@
           
         });
         
-    };
+    }
+    
+    function finalizar(tarefa) {
+      
+      todoListService.finalizar(tarefa.Id, 2)
+        .success(function() {
+          
+          tarefa.Status = 2;
+          
+        }).error(function(err) {
+          
+          vm.erro = err;
+          
+        });
+    }
+    
+    function sair() {
+      autenticacaoService.sair();
+      
+      $location.path('/');
+    }
   }
 
 }());

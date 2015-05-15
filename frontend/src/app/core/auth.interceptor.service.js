@@ -16,7 +16,7 @@
 
     function request(config) {
       config.headers = config.headers || {};
-
+      
       var dadosAutorizacao = localStorageService.get('autorizacao');
 
       if (dadosAutorizacao) {

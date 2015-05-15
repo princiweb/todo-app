@@ -34,10 +34,36 @@
 
 <p data-ng-if="!vm.tarefas.length && vm.carregouTarefas">Não há tarefas cadastradas.</p>
 
+<form>
+	<fieldset>
+		<div>
+			<label for="pendente">Pendente</label>
+			<input type="checkbox" id="pendente" data-ng-init="search.Pendente = true" data-ng-model="search.Pendente" />
+		</div>
+		
+		<div>
+			<label for="finalizado">Finalizado</label>
+			<input type="checkbox" id="finalizado" data-ng-init="search.Finalizado = true" data-ng-model="search.Finalizado" />
+		</div>
+	</fieldset>
+</form>
+
 <ul>
-	<li data-ng-repeat="tarefa in vm.tarefas">
-		<p>{{ tarefa.Titulo }}</p>
+	<li data-ng-repeat="tarefa in vm.tarefas | status:search track by tarefa.Id">
+		<p data-ng-if="tarefa.Status === 2">
+			<strike>{{ tarefa.Titulo }}</strike>
+		</p>
+		<p data-ng-if="tarefa.Status === 1">
+			{{ tarefa.Titulo }}
+		</p>
+		
 		<p>{{ tarefa.CriadoEm | fromNow }}</p>
-		<p>{{ tarefa.Status }}</p>
+		
+		<form data-ng-if="tarefa.Status === 1">
+			<input type="checkbox" id="tarefa-{{ $index }}" data-ng-click="vm.finalizar(tarefa)" />
+			<label for="tarefa-{{ $index }}">Finalizar</label>
+		</form>
 	</li>
 </ul>
+
+<button data-ng-click="vm.sair()">Sair</button>
