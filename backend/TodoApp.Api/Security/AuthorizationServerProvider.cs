@@ -21,8 +21,6 @@ namespace TodoApp.Api.Security
 
         public override async Task GrantResourceOwnerCredentials(OAuthGrantResourceOwnerCredentialsContext context)
         {
-            context.OwinContext.Response.Headers.Add("Access-Control-Allow-Origin", new[] { "*" });
-
             var usuario = _usuarioService.Autenticar(context.UserName, context.Password);
                 
             if (usuario == null)

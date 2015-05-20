@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Web.Http;
-using System.Web.Http.Cors;
 using System.Web.Http.ExceptionHandling;
 using Microsoft.Owin;
+using Microsoft.Owin.Cors;
 using Microsoft.Owin.Security.OAuth;
 using Microsoft.Practices.Unity;
 using Owin;
@@ -22,6 +22,8 @@ namespace TodoApp.Api
             ResolveDependencies(container);
             config.DependencyResolver = new DependencyResolver(container);
 
+            app.UseCors(CorsOptions.AllowAll);
+
             ConfigureWebApi(config);
             ConfigureOAuth(app, container.Resolve<IUsuarioService>());
 
@@ -30,9 +32,6 @@ namespace TodoApp.Api
 
         public static void ConfigureWebApi(HttpConfiguration config)
         {
-            var cors = new EnableCorsAttribute("*", "*", "*");
-            config.EnableCors(cors);
-
             config.MapHttpAttributeRoutes();
 
             config.Routes.MapHttpRoute(
